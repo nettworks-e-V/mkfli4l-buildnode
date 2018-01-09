@@ -1,4 +1,4 @@
-FROM nettworksevtooling/fli4l-mkfli4l-container:latest
+FROM nettworksevtooling/mkfli4l-container:latest
 MAINTAINER Florian Wolters <fli4l@florian-wolters.de>
 
 # Configuration for Jenkins swarm
