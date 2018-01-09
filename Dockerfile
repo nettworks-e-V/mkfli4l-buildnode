@@ -48,6 +48,9 @@ VOLUME /home/jenkins/.ssh
 # Install swarm client
 ADD "https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/${SWARM_PLUGIN_VERSION}/swarm-client-${SWARM_PLUGIN_VERSION}.jar" /data/swarm-client.jar
 
+# Update ownership on /data
+RUN chown -R jenkins:fleis /data
+
 # Switch to user jenkins
 USER jenkins
 
