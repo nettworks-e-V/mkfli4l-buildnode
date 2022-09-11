@@ -1,4 +1,4 @@
-FROM nettworksevtooling/mkfli4l-container:latest
+FROM nettworksevtooling/mkfli4l-container:1.1
 MAINTAINER Florian Wolters <fli4l@florian-wolters.de>
 
 # Configuration for Jenkins swarm
@@ -37,10 +37,10 @@ RUN groupadd --gid ${GID} fleis \
  && ulimit -v unlimited
 
 RUN apt-get autoremove \
- && apt-get clean \
  && apt-get update \
  && apt-get install -y \
-    default-jdk
+        openjdk-17-jdk \
+ && apt-get clean
 
 # Mount point for Jenkins .ssh folder
 VOLUME /home/jenkins/.ssh
@@ -66,4 +66,4 @@ CMD java \
     -password "${JENKINS_PASSWORD}" \
     -labels "${LABELS}" \
     -name "${NAME}" \
--sslFingerprints " "
+    -sslFingerprints " "
